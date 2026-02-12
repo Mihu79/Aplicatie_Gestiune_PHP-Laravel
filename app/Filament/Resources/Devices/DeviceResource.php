@@ -69,8 +69,8 @@ public static function table(\Filament\Tables\Table $table): \Filament\Tables\Ta
             \Filament\Tables\Columns\TextColumn::make('inventory_number')->label('Inv #'),
             \Filament\Tables\Columns\TextColumn::make('status')->badge() // Transformă textul într-o etichetă rotunjită
         ->color(fn (string $state): string => match ($state) {
-            'disponibil' => 'warning', // Galben
-            'alocat' => 'success',     // Verde
+            'alocat' => 'warning', // Galben
+            'disponibil' => 'success',     // Verde
             'service' => 'danger',     // Roșu
         })
         ->label('Status'),

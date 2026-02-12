@@ -16,7 +16,7 @@ class Device extends Model
             $category = Category::find($device->category_id);
             
             // 2. Definim prefixul firmei (ex: DOLJ sau ABC)
-            $prefixFirma = 'DOLJ'; 
+            $prefixFirma = 'GTN'; 
             
             // 3. Luăm prefixul categoriei (ex: NB, PR) definit la crearea categoriei
             $prefixCat = $category->prefix ?? 'XX';
