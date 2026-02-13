@@ -31,8 +31,8 @@ Pentru a rula proiectul pe mașina locală, urmați acești pași:
 
 **1. Clonarea proiectului**
 ```bash
-git clone 
-cd gestiune-inventar-laravel
+git clone https://github.com/Mihu79/Aplicatie_Gestiune_PHP-Laravel.git
+cd Aplicatie_Gestiune_PHP-Laravel
 ```
 
 **2. Instalarea dependențelor**
@@ -88,5 +88,3 @@ php artisan serve
 Aplicația este acum live! Pentru a accesa panoul de administrare, navigați în browser la adresa:
 👉 **[http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)**
 
----
-*Proiect realizat ca temă tehnică de interviu.*
