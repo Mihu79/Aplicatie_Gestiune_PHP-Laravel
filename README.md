@@ -20,7 +20,7 @@ Aplicația îndeplinește cu succes toate cerințele funcționale ale temei de i
 
 * PHP ^8.2
 * Composer
-* MySQL / MariaDB (ex: XAMPP)
+* MySQL (ex: XAMPP)
 * Extensia PHP `ext-gd` activată (pentru generarea codurilor QR)
 
 ---
