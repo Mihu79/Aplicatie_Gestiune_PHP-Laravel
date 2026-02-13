@@ -37,7 +37,7 @@ class CategoryResource extends Resource
         ])
         ->filters([])
         ->actions([
-            // Folosim calea completă (directă) pentru a evita eroarea "Class not found"
+            
             \Filament\Actions\EditAction::make(),
             \Filament\Actions\DeleteAction::make(),
         ])

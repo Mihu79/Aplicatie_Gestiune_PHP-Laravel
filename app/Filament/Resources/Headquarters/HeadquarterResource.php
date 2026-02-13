@@ -7,7 +7,7 @@ use App\Models\Headquarter;
 use Filament\Forms;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
-use Filament\Tables; // <--- IMPORT GENERIC
+use Filament\Tables; 
 use Filament\Tables\Table;
 
 class HeadquarterResource extends Resource

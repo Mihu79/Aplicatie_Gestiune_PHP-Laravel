@@ -15,7 +15,7 @@ class Device extends Model
             // 1. Luăm categoria din care face parte dispozitivul
             $category = Category::find($device->category_id);
             
-            // 2. Definim prefixul firmei (ex: DOLJ sau ABC)
+            // 2. Definim prefixul firmei 
             $prefixFirma = 'GTN'; 
             
             // 3. Luăm prefixul categoriei (ex: NB, PR) definit la crearea categoriei
@@ -40,7 +40,7 @@ class Device extends Model
         // Cazul B: Dacă NU ai utilizator (câmpul e gol)
         else {
             // Modificăm statusul în 'disponibil' DOAR dacă era 'alocat' înainte.
-            // Dacă tu ai selectat manual 'service' sau 'retras', sistemul NU se mai atinge de el.
+            // Dacă tu ai selectat manual 'service', sistemul NU se mai atinge de el.
             if ($device->status === 'alocat') {
                 $device->status = 'disponibil';
             }

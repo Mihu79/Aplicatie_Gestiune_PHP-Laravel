@@ -8,7 +8,7 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class StatsOverview extends BaseWidget
 {
-    // AM ȘTERS "static" DE AICI:
+    
     protected ?string $pollingInterval = '15s';
 
     protected function getStats(): array

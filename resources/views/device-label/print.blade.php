@@ -7,14 +7,13 @@
     
     <style>
         :root {
-            /* Păstrăm proporția din imagine (234px / 70px = ~3.3 raport) 
-               90mm / 27mm păstrează acest raport alungit */
+           
             --label-width: 90mm;
-            --label-height: 28mm; /* Am ajustat puțin înălțimea să semene cu proporția 70px */
+            --label-height: 28mm; 
         }
 
         body {
-            /* 2. APLICĂM FONTUL LATO */
+            
             font-family: 'Lato', sans-serif;
             background-color: #e5e7eb;
             display: flex;
@@ -64,17 +63,17 @@
         }
 
         .label-title {
-            /* 3. TEXTUL "Indicativ:" */
+            
             font-size: 8pt; 
-            font-weight: 700; /* Lato Bold */
+            font-weight: 700; 
             color: #444;
-            text-transform: none; /* În poză e scris normal, nu majuscule */
+            text-transform: none; 
             margin-bottom: 0.5mm;
         }
 
         .inventory-number {
             font-size: 14pt; 
-            font-weight: 900; /* Lato Black/ExtraBold */
+            font-weight: 900; 
             color: #000;
             line-height: 1;
             white-space: nowrap;
@@ -84,7 +83,7 @@
             font-size: 7pt;
             font-weight: 700;
             color: #000;
-            margin-bottom: 1mm; /* Brandul e sus în poză */
+            margin-bottom: 1mm; 
             white-space: nowrap; 
             overflow: hidden; 
             text-overflow: ellipsis;
@@ -98,7 +97,7 @@
             align-items: center;
             justify-content: center;
             padding-left: 1mm;
-            border-left: 1px solid #eee; /* O linie fină separatoare ca în unele designuri */
+            border-left: 1px solid #eee; 
         }
     </style>
 </head>

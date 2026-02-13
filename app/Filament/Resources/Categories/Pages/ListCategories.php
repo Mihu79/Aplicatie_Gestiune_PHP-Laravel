@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Categories\CategoryResource\Pages; // <--- Aici s-a schimbat
+namespace App\Filament\Resources\Categories\CategoryResource\Pages; 
 
-use App\Filament\Resources\Categories\CategoryResource; // <--- Și aici
+use App\Filament\Resources\Categories\CategoryResource; 
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
