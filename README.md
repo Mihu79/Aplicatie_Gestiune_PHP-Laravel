@@ -1,59 +1,92 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📦 App_Gestiune - Platformă Gestiune Obiecte de Inventar
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Această aplicație web a fost dezvoltată ca soluție tehnică pentru administrarea eficientă a inventarului și urmărirea echipamentelor dintr-o companie. Proiectul este construit pe un stack modern și robust, folosind **Laravel** și interfața de administrare **FilamentPHP**.
 
-## About Laravel
+## 🚀 Caracteristici Principale
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplicația îndeplinește cu succes toate cerințele funcționale ale temei de interviu, aducând și câteva îmbunătățiri de experiență a utilizatorului (UX):
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* **Structură Ierarhică a Locațiilor:** Gestiune completă (CRUD) pentru **Sedii** și **Camere**. Camerele sunt alocate dinamic către sedii.
+* **Gestiune Categorii:** Definirea tipurilor de echipamente (ex: Laptop, Imprimantă) alături de prefixele lor unice (ex: NB, PR).
+* **Inventar Dispozitive:** Sistem complet de adăugare și editare a echipamentelor, cu detalii despre marcă, model, serie și utilizator alocat.
+* **⚙️ Generare Automată a Numărului de Inventar:** Sistem inteligent care alocă un număr unic de forma `<PREFIX_FIRMA>-<PREFIX_CATEGORIE>-<NUMAR>`. Incrementarea (ex: 0001, 0002) se face automat și separat pentru fiecare categorie în parte.
+* **🔄 Automatizare Status:** Statusul echipamentului se actualizează dinamic pe baza utilizatorului (ex: devine „Alocat” când este adăugat un utilizator și „Disponibil” când este scos).
+* **🖨️ Etichete Termice cu Cod QR:** Generare de etichete pregătite pentru printare la dimensiuni fizice stricte (90x35mm / echivalent 70x234px). Fiecare etichetă include Numărul de Inventar, Iconița categoriei și un **Cod QR** care duce direct la pagina echipamentului.
+* **📊 Dashboard & Filtre Avansate:** Panou principal cu statistici în timp real. Tabelul dispozitivelor include filtre complexe (ex: Căutare echipamente dintr-un anumit Sediu pe baza relației cu Camera).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 💻 Cerințe de Sistem
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+* PHP ^8.2
+* Composer
+* MySQL / MariaDB (ex: XAMPP)
+* Extensia PHP `ext-gd` activată (pentru generarea codurilor QR)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🛠️ Instalare și Configurare
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Pentru a rula proiectul pe mașina locală, urmați acești pași:
 
-### Premium Partners
+**1. Clonarea proiectului**
+```bash
+git clone 
+cd gestiune-inventar-laravel
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+**2. Instalarea dependențelor**
+```bash
+composer install
+```
 
-## Contributing
+**3. Configurarea bazei de date**
+* Copiați fișierul de configurare:
+```bash
+cp .env.example .env
+```
+* Generați cheia aplicației:
+```bash
+php artisan key:generate
+```
+* Deschideți fișierul `.env` creat și setați datele pentru baza de date (asigurați-vă că ați creat anterior o bază de date goală în MySQL):
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=numele_bazei_de_date_alese
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**4. Rularea migrărilor**
+Această comandă va crea toate tabelele necesare în baza de date:
+```bash
+php artisan migrate
+```
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🔐 Crearea unui Cont de Administrator
 
-## Security Vulnerabilities
+Deoarece aplicația folosește FilamentPHP pentru panoul de administrare, nu există un cont implicit. Pentru a vă putea loga, trebuie să creați un utilizator de admin rulând comanda:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan make:filament-user
+```
+*(Sistemul vă va cere să introduceți un Nume, o adresă de Email și o Parolă).*
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🚀 Rularea Aplicației
+
+Porniți serverul local de dezvoltare:
+```bash
+php artisan serve
+```
+
+Aplicația este acum live! Pentru a accesa panoul de administrare, navigați în browser la adresa:
+👉 **[http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)**
+
+---
+*Proiect realizat ca temă tehnică de interviu.*
